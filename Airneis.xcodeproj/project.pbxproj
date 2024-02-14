@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		E4107FA52B7D20FD009AE71B /* AirneisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4107FA42B7D20FD009AE71B /* AirneisApp.swift */; };
-		E4107FA72B7D20FD009AE71B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4107FA62B7D20FD009AE71B /* ContentView.swift */; };
 		E4107FA92B7D20FE009AE71B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4107FA82B7D20FE009AE71B /* Assets.xcassets */; };
 		E4107FAC2B7D20FE009AE71B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4107FAB2B7D20FE009AE71B /* Preview Assets.xcassets */; };
+		E4107FB42B7D2B8C009AE71B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4107FB32B7D2B8C009AE71B /* HomeView.swift */; };
+		E4107FB82B7D2F2A009AE71B /* Comfortaa-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4107FB72B7D2F2A009AE71B /* Comfortaa-VariableFont_wght.ttf */; };
+		E4107FBA2B7D2F35009AE71B /* Macondo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4107FB92B7D2F35009AE71B /* Macondo-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E4107FA12B7D20FD009AE71B /* Airneis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airneis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4107FA42B7D20FD009AE71B /* AirneisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirneisApp.swift; sourceTree = "<group>"; };
-		E4107FA62B7D20FD009AE71B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E4107FA82B7D20FE009AE71B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4107FAB2B7D20FE009AE71B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E4107FB32B7D2B8C009AE71B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E4107FB72B7D2F2A009AE71B /* Comfortaa-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		E4107FB92B7D2F35009AE71B /* Macondo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Macondo-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				E4107FA42B7D20FD009AE71B /* AirneisApp.swift */,
-				E4107FA62B7D20FD009AE71B /* ContentView.swift */,
+				E4107FB32B7D2B8C009AE71B /* HomeView.swift */,
 				E4107FA82B7D20FE009AE71B /* Assets.xcassets */,
+				E4107FB62B7D2E61009AE71B /* font */,
 				E4107FAA2B7D20FE009AE71B /* Preview Content */,
 			);
 			path = Airneis;
@@ -65,6 +70,15 @@
 				E4107FAB2B7D20FE009AE71B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E4107FB62B7D2E61009AE71B /* font */ = {
+			isa = PBXGroup;
+			children = (
+				E4107FB92B7D2F35009AE71B /* Macondo-Regular.ttf */,
+				E4107FB72B7D2F2A009AE71B /* Comfortaa-VariableFont_wght.ttf */,
+			);
+			path = font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +140,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4107FAC2B7D20FE009AE71B /* Preview Assets.xcassets in Resources */,
+				E4107FB82B7D2F2A009AE71B /* Comfortaa-VariableFont_wght.ttf in Resources */,
 				E4107FA92B7D20FE009AE71B /* Assets.xcassets in Resources */,
+				E4107FBA2B7D2F35009AE71B /* Macondo-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4107FA72B7D20FD009AE71B /* ContentView.swift in Sources */,
+				E4107FB42B7D2B8C009AE71B /* HomeView.swift in Sources */,
 				E4107FA52B7D20FD009AE71B /* AirneisApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,11 +291,14 @@
 				DEVELOPMENT_TEAM = VD7UWGN2GV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Airneis/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Airneis;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,11 +323,14 @@
 				DEVELOPMENT_TEAM = VD7UWGN2GV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Airneis/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Airneis;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
