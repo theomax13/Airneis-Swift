@@ -13,6 +13,7 @@
 		E4107FB42B7D2B8C009AE71B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4107FB32B7D2B8C009AE71B /* HomeView.swift */; };
 		E4107FB82B7D2F2A009AE71B /* Comfortaa-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4107FB72B7D2F2A009AE71B /* Comfortaa-VariableFont_wght.ttf */; };
 		E4107FBA2B7D2F35009AE71B /* Macondo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4107FB92B7D2F35009AE71B /* Macondo-Regular.ttf */; };
+		E47B82D12B7E653100923421 /* AirneisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B82D02B7E653100923421 /* AirneisModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		E4107FB32B7D2B8C009AE71B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E4107FB72B7D2F2A009AE71B /* Comfortaa-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		E4107FB92B7D2F35009AE71B /* Macondo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Macondo-Regular.ttf"; sourceTree = "<group>"; };
+		E47B82D02B7E653100923421 /* AirneisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirneisModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				E4107FA42B7D20FD009AE71B /* AirneisApp.swift */,
 				E4107FB32B7D2B8C009AE71B /* HomeView.swift */,
+				E47B82D02B7E653100923421 /* AirneisModel.swift */,
 				E4107FA82B7D20FE009AE71B /* Assets.xcassets */,
 				E4107FB62B7D2E61009AE71B /* font */,
 				E4107FAA2B7D20FE009AE71B /* Preview Content */,
@@ -155,6 +158,7 @@
 			files = (
 				E4107FB42B7D2B8C009AE71B /* HomeView.swift in Sources */,
 				E4107FA52B7D20FD009AE71B /* AirneisApp.swift in Sources */,
+				E47B82D12B7E653100923421 /* AirneisModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
