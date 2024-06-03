@@ -13,7 +13,7 @@ struct CategoryView2: View {
 
     @Binding var presentSideMenu: Bool
 	@Binding var showResearch: Bool
-//	@Binding var cartViewShow: Bool
+	@Binding var showCart: Bool
 //    @State var presentSideMenu = false
 	
 	@State private var selectedProduct: Produit?
@@ -53,6 +53,7 @@ struct CategoryView2: View {
 								ProduitCard(produit: produit, pictureHeight: 300)
 									.padding([.leading, .top, .trailing])
 							} //: Button
+							.accessibilityIdentifier(produit.name)
                         }
                     }
 					Spacer()
@@ -63,9 +64,9 @@ struct CategoryView2: View {
 			.navigationDestination(isPresented: $productViewShow) {
 				if selectedProduct != nil {
 //					ProductView(produit: selectedProduct!)
-					ProductView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, produit: selectedProduct!)
+					ProductView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart, produit: selectedProduct!)
 				} else {
-					ParamsView(presentSideMenu: $presentSideMenu, showResearch: $showResearch)
+					ParamsView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart)
 				}
 			}
         }
@@ -80,6 +81,7 @@ struct CategoryView2: View {
                         .foregroundStyle(.primaryYellow)
                         .tint(.secondaryWhite)
                 }
+				.accessibilityIdentifier("BackButton")
             }
         }
     }

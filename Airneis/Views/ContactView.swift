@@ -10,13 +10,13 @@ import SwiftUI
 struct ContactView: View {
 	@Binding var presentSideMenu: Bool
 	@Binding var showResearch: Bool
-//	@Binding var cartViewShow: Bool
+	@Binding var showCart: Bool
 	
 	@State var selectedSideMenuTab = 5
 	
 	var body: some View {
 		VStack{
-			Header(presentSideMenu: $presentSideMenu, showResearch: $showResearch, selectedSideMenuTab: $selectedSideMenuTab)
+			Header(presentSideMenu: $presentSideMenu, showResearch: $showResearch, presentCart: $showCart)
 			
 			Spacer()
 			Text("Contact View")

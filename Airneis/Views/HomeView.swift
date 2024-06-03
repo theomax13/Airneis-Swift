@@ -11,6 +11,7 @@ struct HomeView: View {
     @Environment(\.themeColor) var themeColor: Color
     @Binding var presentSideMenu: Bool
 	@Binding var showResearch: Bool
+	@Binding var showCart: Bool
 //	@Binding var cartViewShow: Bool
 	
 	@State var selectedMaterials: Set<Produit> = []
@@ -46,7 +47,7 @@ struct HomeView: View {
                     ScrollView {
 						// MARK: Header
 						
-						Header(presentSideMenu: $presentSideMenu, showResearch: $showResearch, selectedSideMenuTab: $selectedSideMenuTab)
+						Header(presentSideMenu: $presentSideMenu, showResearch: $showResearch, presentCart: $showCart)
                         // MARK: Carousel
 
                         Carousel()
@@ -69,6 +70,7 @@ struct HomeView: View {
 										CategoryCard(category: category)
 											.padding([.leading, .trailing])
 									} //: Button
+									.accessibilityIdentifier(category.name)
 								} //: ForEach
 							} //: HStack
                         } //: VStack
@@ -100,23 +102,24 @@ struct HomeView: View {
                     .navigationDestination(isPresented: $categoryViewShow) {
                         if selectedCategory != nil {
 //                            CategoryView2(category: selectedCategory!)
-							CategoryView2(presentSideMenu: $presentSideMenu, showResearch: $showResearch, category: selectedCategory!)
+							CategoryView2(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart, category: selectedCategory!)
                         } else {
-							ParamsView(presentSideMenu: $presentSideMenu, showResearch: $showResearch)
+							ParamsView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart)
                         }
                     }
-//					.navigationDestination(isPresented: $cartViewShow) {
-//						CategoryView2(presentSideMenu: $presentSideMenu, showResearch: $showResearch, category: selectedCategory!)
-//					}
+					.navigationDestination(isPresented: $showCart) {
+						CartView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart, showHeader: false)
+						
+					}
                     .background(themeColor)
                 }
             } //: VStack
 			.sheet(isPresented: $showResearch) {
-				FilterView(presentSideMenu: $presentSideMenu, showResearch: $showResearch)
+				FilterView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart)
 					.background(themeColor)
 			}
 //			.sheet(isPresented: $cartViewShow) {
-//				CommandesView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showHeader: false)
+//				CartView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showHeader: false)
 //			}
         } //: ZStack
     } //: body

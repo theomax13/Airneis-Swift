@@ -12,13 +12,13 @@ struct LoginView: View {
 	
 	@Binding var presentSideMenu: Bool
 	@Binding var showResearch: Bool
-//	@Binding var cartViewShow: Bool
+	@Binding var showCart: Bool
 	
 	@State var selectedSideMenuTab = 1
 	
 	var body: some View {
 		VStack{
-			Header(presentSideMenu: $presentSideMenu, showResearch: $showResearch, selectedSideMenuTab: $selectedSideMenuTab)
+			Header(presentSideMenu: $presentSideMenu, showResearch: $showResearch, presentCart: $showCart)
 			
 			Spacer()
 			
@@ -47,7 +47,20 @@ struct LoginView: View {
 			Spacer()
 			
 			Button(
-				action: viewModel.login,
+				action: {
+					let completion: (Result<LoginResponse, Error>) -> Void = { result in
+						switch result {
+							case .success(let response):
+								print("Login response: \(response)")
+							case .failure(let error):
+								print("Login failed with error: \(error)")
+						}
+					}
+					let onSuccess: () -> Void = {
+						print("Login successful!")
+					}
+					viewModel.login(completion: completion, onSuccess: onSuccess)
+				},
 				label: {
 					Text("Login")
 						.font(Font.custom("Comfortaa-Regular", size: 24))
@@ -57,6 +70,7 @@ struct LoginView: View {
 						.cornerRadius(55)
 				}
 			)
+
 		}
 		.padding(.horizontal, 24)
 	}

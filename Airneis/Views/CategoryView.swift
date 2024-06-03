@@ -11,7 +11,7 @@ struct CategoryView: View {
     @Environment(\.themeColor) var themeColor: Color
 	@Binding var presentSideMenu: Bool
 	@Binding var showResearch: Bool
-	@Binding var cartViewShow: Bool
+	@Binding var showCart: Bool
 	
 	@State var selectedSideMenuTab = 999
 
@@ -29,7 +29,7 @@ struct CategoryView: View {
                 ScrollView {
                     // MARK: Header
 
-					Header(presentSideMenu: $presentSideMenu, showResearch: $showResearch, selectedSideMenuTab: $selectedSideMenuTab)
+					Header(presentSideMenu: $presentSideMenu, showResearch: $showResearch, presentCart: $showCart)
 
                     Image("\(category.image)")
                         .resizable()

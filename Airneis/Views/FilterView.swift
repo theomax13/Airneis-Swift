@@ -12,7 +12,7 @@ struct FilterView: View {
 	
 	@Binding var presentSideMenu: Bool
 	@Binding var showResearch: Bool
-//	@Binding var cartViewShow: Bool
+	@Binding var showCart: Bool
 	
 	@State var searchText: String = ""
 	@State var searchprixMin: String = ""
@@ -99,9 +99,9 @@ struct FilterView: View {
 			.searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
 			.navigationDestination(isPresented: $productViewShow) {
 				if selectedProduct != nil {
-					ProductView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, produit: selectedProduct!)
+					ProductView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart, produit: selectedProduct!)
 				} else {
-					ParamsView(presentSideMenu: $presentSideMenu, showResearch: $showResearch)
+					ParamsView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart)
 				}
 			}
 		}

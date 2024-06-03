@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct AirneisApp: App {
-	@AppStorage("loginState") private var loginState: Bool = false
+	@AppStorage("loginState") private var isLogged: Bool = false
 	
 	let loginViewModel = LoginViewModel()
 	let cart = Cart()

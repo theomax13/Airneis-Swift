@@ -1,5 +1,5 @@
 //
-//  CommandesView.swift
+//  CartView.swift
 //  Airneis
 //
 //  Created by Théo Maxime on 17/04/2024.
@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct CommandesView: View {
+struct CartView: View {
 	@Environment(\.themeColor) var themeColor: Color
+	@Environment(\.dismiss) var dismiss
 	@EnvironmentObject var cart: Cart
 	
 	@State private var selectedProduct: Produit?
@@ -17,14 +18,14 @@ struct CommandesView: View {
 	
 	@Binding var presentSideMenu: Bool
 	@Binding var showResearch: Bool
-//	@Binding var cartViewShow: Bool
+	@Binding var showCart: Bool
 	
 	var showHeader = true
 	
 	var body: some View {
 		VStack{
 			if showHeader == true {
-				Header(presentSideMenu: $presentSideMenu, showResearch: $showResearch, selectedSideMenuTab: $selectedSideMenuTab)
+				Header(presentSideMenu: $presentSideMenu, showResearch: $showResearch, presentCart: $showCart)
 			}
 			
 			NavigationStack {				
@@ -43,9 +44,22 @@ struct CommandesView: View {
 			.navigationDestination(isPresented: $productViewShow) {
 				if selectedProduct != nil {
 					//					ProductView(produit: selectedProduct!)
-					ProductView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, produit: selectedProduct!)
+					ProductView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart, produit: selectedProduct!)
 				} else {
-					ParamsView(presentSideMenu: $presentSideMenu, showResearch: $showResearch)
+					ParamsView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart)
+				}
+			}
+		}
+		.navigationBarBackButtonHidden(true)
+		.toolbar {
+			ToolbarItem(placement: .topBarLeading) {
+				Button(action: {
+					dismiss()
+				}) {
+					Image(systemName: "arrow.left.circle.fill")
+						.font(.title)
+						.foregroundStyle(.primaryYellow)
+						.tint(.secondaryWhite)
 				}
 			}
 		}

@@ -7,14 +7,6 @@
 
 import Foundation
 
-struct LoginResponse {
-	let data: LoginResponseData
-}
-
-struct LoginResponseData {
-	let username: String
-	let exp: Int
-	let iat: Int
-	let roles: Array<Any>
-	let id: Int
+struct LoginResponse: Codable {
+	let token: String
 }

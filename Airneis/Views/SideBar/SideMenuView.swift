@@ -43,7 +43,7 @@ enum SideMenuRowTypeLogged: Int, CaseIterable {
 			case .home:
 				return "house"
 			case .commande:
-				return "cart"
+				return "shippingbox"
 			case .params:
 				return "gear"
 			case .cgu:
@@ -128,7 +128,6 @@ struct SideMenuView: View {
                         .frame(height: 140)
                         .padding(.bottom, 30)
 
-//					if loginModel.loginState {
 						ForEach(SideMenuRowTypeLogged.allCases, id: \.self) { row in
 							RowView(isSelected: selectedSideMenuTab == row.rawValue, imageName: row.iconName, title: row.title) {
 								selectedSideMenuTab = row.rawValue
@@ -136,15 +135,6 @@ struct SideMenuView: View {
 								presentSideMenu.toggle()
 							}
 						}
-//					} else {
-//						ForEach(SideMenuRowType.allCases, id: \.self) { row in
-//							RowView(isSelected: selectedSideMenuTab == row.rawValue, imageName: row.iconName, title: row.title) {
-//								selectedSideMenuTab = row.rawValue
-//								print(selectedSideMenuTab)
-//								presentSideMenu.toggle()
-//							}
-//						}
-//					}
 
                     Spacer()
                 }
@@ -212,6 +202,7 @@ struct SideMenuView: View {
 				}
 			}
         }
+		.accessibilityIdentifier(imageName)
         .frame(height: 50)
         .background(
             LinearGradient(colors: [isSelected ? .primaryYellow.opacity(0.5) : .primaryBlue, .primaryBlue], startPoint: .trailing, endPoint: .leading)

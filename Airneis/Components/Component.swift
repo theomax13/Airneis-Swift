@@ -157,7 +157,7 @@ struct Header: View {
     @Environment(\.themeColor) var themeColor: Color
     @Binding var presentSideMenu: Bool
     @Binding var showResearch: Bool
-	@Binding var selectedSideMenuTab: Int
+	@Binding var presentCart: Bool
 
     var body: some View {
         NavigationStack {
@@ -173,13 +173,16 @@ struct Header: View {
                         .font(.title3)
                         .foregroundColor(.primaryYellow)
                 }
+				.accessibilityIdentifier("research")
                 Button(action: {
-					selectedSideMenuTab = 1
+//					selectedSideMenuTab = 1
+					presentCart.toggle()
 				}) {
                     Image(systemName: "cart")
                         .font(.title3)
                         .foregroundColor(.primaryYellow)
                 }
+				.accessibilityIdentifier("cart")
                 Button(action: {
                     presentSideMenu.toggle()
                 }) {
@@ -188,6 +191,7 @@ struct Header: View {
                         .foregroundColor(.primaryYellow)
                         .padding(.trailing)
                 } //: Button
+				.accessibilityIdentifier("sideMenuButton")
             } //: HStack
             .background(themeColor)
             Spacer()
@@ -236,6 +240,38 @@ struct Carousel: View {
             }
         }
     }
+}
+
+struct OrderRowView: View {
+	@ObservedObject var viewModel: OrderViewModel
+	let order: Order
+	
+	var body: some View {
+		NavigationLink(destination: OrderDetailView(viewModel: viewModel, orders: order)) {
+			HStack {
+				VStack(alignment: .leading) {
+					Text("\(order.date) - #\(order.orderNumber)")
+						.font(.headline)
+						.foregroundColor(.white)
+					Text("\(order.itemCount) articles")
+						.font(.subheadline)
+						.foregroundColor(.white)
+				}
+				Spacer()
+				VStack {
+					Text(order.status)
+						.font(.headline)
+						.foregroundColor(.white)
+					Text("\(order.priceTotal, specifier: "%.2f")€")
+						.font(.subheadline)
+						.foregroundColor(.white)
+				}
+			}
+			.padding()
+			.background(Color.thirdBlue) // Adjust color to match your design
+			.cornerRadius(10)
+		}
+	}
 }
 
 //

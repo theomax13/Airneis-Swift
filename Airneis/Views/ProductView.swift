@@ -14,7 +14,7 @@ struct ProductView: View {
 
 	@Binding var presentSideMenu: Bool
 	@Binding var showResearch: Bool
-//	@Binding var cartViewShow: Bool
+	@Binding var showCart: Bool
 	
 //    @State var presentSideMenu = false
 	@State private var productViewShow = false
@@ -72,7 +72,7 @@ struct ProductView: View {
                         Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor massa nec fermentum ullamcorper. Ut maximus tempus velit quis commodo.")
                             .font(Font.custom("Comfortaa-Regular", size: 14))
                     }
-                    .padding()
+					.padding(.bottom)
 					
 					if produit.stock == true {
 						Button(action: {
@@ -80,6 +80,7 @@ struct ProductView: View {
 						}) {
 							Text("Ajouter au panier")
 						}
+						.accessibilityIdentifier("addToCart")
 						.foregroundStyle(.primaryYellow)
 						.buttonStyle(.bordered)
 					} else {
@@ -109,9 +110,9 @@ struct ProductView: View {
 			.navigationDestination(isPresented: $productViewShow) {
 				if selectedProduct != nil {
 //					ProductView(produit: selectedProduct!)
-					ProductView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, produit: selectedProduct!)
+					ProductView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart, produit: selectedProduct!)
 				} else {
-					ParamsView(presentSideMenu: $presentSideMenu, showResearch: $showResearch)
+					ParamsView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart)
 				}
 			}
         }
@@ -126,6 +127,7 @@ struct ProductView: View {
                         .foregroundStyle(.primaryYellow)
                         .tint(.secondaryWhite)
                 }
+				.accessibilityIdentifier("BackButton")
             }
         }
     }

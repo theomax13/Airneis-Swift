@@ -7,27 +7,28 @@
 
 import SwiftUI
 
-struct MainTabbedView: View {
+struct MainTabbedView: View {	
+	@EnvironmentObject var loginViewModel: LoginViewModel
+
 	@ObservedObject var cart: Cart
-	@EnvironmentObject var loginModel: LoginViewModel
 	
     @State var presentSideMenu = false
     @State var selectedSideMenuTab = 0
 	@State var showResearch = false
-	@State var cartViewShow = false
+	@State private var showCart = false
 
     var body: some View {
         ZStack {
 //			if loginModel.loginState {
 				switch selectedSideMenuTab {
-					case 0: HomeView(presentSideMenu: $presentSideMenu, showResearch: $showResearch)
-					case 1: CommandesView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showHeader: true)
-					case 2: ParamsView(presentSideMenu: $presentSideMenu, showResearch: $showResearch)
-					case 3: CGUView(presentSideMenu: $presentSideMenu, showResearch: $showResearch)
-					case 4: MentionView(presentSideMenu: $presentSideMenu, showResearch: $showResearch)
-					case 5: ContactView(presentSideMenu: $presentSideMenu, showResearch: $showResearch)
-					case 6: AboutView(presentSideMenu: $presentSideMenu, showResearch: $showResearch)
-					case 7: LogoutView(presentSideMenu: $presentSideMenu, showResearch: $showResearch)
+					case 0: HomeView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart)
+					case 1: OrdersView(viewModel: OrderViewModel(loginViewModel: self.loginViewModel), presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart)
+					case 2: ParamsView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart)
+					case 3: CGUView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart)
+					case 4: MentionView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart)
+					case 5: ContactView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart)
+					case 6: AboutView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart)
+					case 7: LogoutView(presentSideMenu: $presentSideMenu, showResearch: $showResearch, showCart: $showCart)
 					default: EmptyView()
 				}
 
